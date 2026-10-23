@@ -1,24 +1,17 @@
-from __future__ import annotations
-
-from typing import Dict, List
-
-import pandas as pd
-import yfinance as yf
-
-
-def download_price_data(symbols: List[str], start: str, end: str) -> Dict[str, pd.DataFrame]:
-    data: Dict[str, pd.DataFrame] = {}
-    for symbol in symbols:
-        ticker = yf.download(symbol, start=start, end=end, auto_adjust=False, progress=False, threads=False)
-        if ticker.empty:
-            continue
-        ticker = ticker.rename(columns={
-            "Open": "open",
-            "High": "high",
-            "Low": "low",
-            "Close": "close",
-            "Volume": "volume",
-        })
-        ticker.index.name = "date"
-        data[symbol] = ticker
-    return data
+symbols:
+  - RELIANCE
+  - HDFCBANK
+  - TCS
+  - INFY
+start_date: "2023-01-01"
+end_date: "2024-12-31"
+provider: dhan
+exchange: BSE
+market_mode: paper_trade
+cash: 100000
+risk_per_trade: 0.02
+max_positions: 3
+fast_window: 10
+slow_window: 30
+trade_fee: 0.001
+log_level: INFO

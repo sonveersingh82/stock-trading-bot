@@ -1,9 +1,11 @@
 symbols:
-  - AAPL
-  - MSFT
-  - NVDA
-start_date: "2022-01-01"
+  - RELIANCE
+  - TCS
+  - HDFCBANK
+start_date: "2023-01-01"
 end_date: "2024-12-31"
+provider: yahoo
+exchange: NSE
 cash: 100000
 risk_per_trade: 0.02
 max_positions: 3
